@@ -1,0 +1,21 @@
+{
+  "name": "mageplaza/module-one-step-checkout-ultimate",
+  "description": "Magento 2 One Step Checkout Ultimate",
+  "require": {
+  	"mageplaza/module-one-step-checkout-pro": "^4.1.9",
+  	"mageplaza/module-quick-cart":"^4.0.4",
+    "mageplaza/module-thank-you-page":"^4.0.2",
+  	"mageplaza/module-social-login-pro":"^4.1.10"
+  },
+  "type": "magento2-module",
+  "version": "4.1.9",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mageplaza",
+      "email": "support@mageplaza.com",
+      "homepage": "https://www.mageplaza.com",
+      "role": "Technical Support"
+    }
+  ]
+}

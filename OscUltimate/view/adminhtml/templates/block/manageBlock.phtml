@@ -1,0 +1,136 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Osc
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var Block $block */
+
+use Mageplaza\OscUltimate\Block\Adminhtml\Layout\Block;
+
+?>
+<style>
+    div#manage-block {
+        width: 100%;
+        background: #F6F6F4;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .test {
+        margin-top: 2%;
+        width: 50%;
+    }
+    .test label{
+        color: #000000;
+        font-size:20px;
+        padding-right:10px;
+    }
+    .test select{
+        width: 60%;
+    }
+
+    div#mposc-layout-block {
+        width: 100%;
+    }
+
+    .page-layout ul {
+        display: flex;
+        border: 2px dashed #767676;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+        list-style-type: none;
+        margin: 3%;
+        padding: 3%;
+    }
+    .page-layout ul li {
+        font-size: 20px;
+        background-color: #050084;
+        color: #FFFFFF;
+        margin: 2%;
+        display: flex;
+        height: 50px;
+        align-items: center;
+        padding-left: 10px;
+    }
+    .page-layout._active {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .page-layout {
+        width: 80%;
+        display: none;
+        flex-direction: row;
+        align-items: center;
+    }
+    .page-layout i.fa.fa-grip-vertical{
+        padding-right: 32%;
+        font-size: 12px;
+    }
+    .three-columns i.fa.fa-grip-vertical{
+        padding-right: 10%;
+        font-size: 12px;
+    }
+    .columns-colspan ul.sortable-list.ui-sortable.column-1 {
+        width: 30%;
+        height: 340px;
+    }
+    .columns-colspan  i.fa.fa-grip-vertical{
+        padding-right: 8%;
+        font-size: 12px;
+    }
+    .column-2 i.fa.fa-grip-vertical{
+        padding-right: 32%;
+        font-size: 12px;
+    }
+    .columns-details i.fa.fa-grip-vertical{
+        padding-right: 8%;
+        font-size: 12px;
+    }
+    .columns-colspan .column-2{
+        display: flex;
+        width: 70%;
+        flex-direction: column;
+    }
+
+    .columns-colspan .columns-details {
+        display: flex;
+    }
+</style>
+<div id="<?= $block->escapeQuote($block->getBlockId()) ?>" class="mposc-field-container">
+    <div id="manage-block">
+        <div class="test">
+            <label for="layout-checkout-page">Checkout Page Layout</label>
+            <select id="layout-checkout-page">
+                <?php foreach ($block->getLayoutCheckoutPage() as $item): ?>
+                    <option value="<?= /** @noEscape */
+                    $item['value'] ?>"><?= /** @noEscape */
+                        $item['label'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <?= $block->getChildHtml() ?>
+    </div>
+</div>

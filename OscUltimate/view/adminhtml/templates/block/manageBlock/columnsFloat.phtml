@@ -1,0 +1,71 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Osc
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var ColumnsFloat $block */
+
+use Mageplaza\OscUltimate\Block\Adminhtml\Layout\ManageBlock\ColumnsFloat;
+
+?>
+<div id="<?= $block->escapeQuote($block->getBlockId()) ?>" class="page-layout columns-floating">
+    <ul class="sortable-list ui-sortable">
+        <?php foreach ($block->getSortedFields()['column-1'] as $key => $item): ?>
+            <li class="sortable-item "
+                data-code="<?= $key ?>">
+                <i class="fa fa-grip-vertical"></i>
+                <?php if ($key === 'address-information'): ?>
+                <i class="fa fa-home">
+                    <?php elseif ($key === 'shipping-method'): ?>
+                    <i class="fa fa-truck">
+                        <?php elseif ($key === 'payment-method'): ?>
+                        <i class="far fa-credit-card">
+                            <?php else: ?>
+                            <i class="fa fa-check-square">
+                                <?php endif; ?>
+                                <span><?= $item ?></span>
+                            </i>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <ul class="ui-sortable" style="background-color: #E6E6E6">
+        <span>Float block</span>
+        <?php foreach ($block->getSortedFields()['column-2'] as $key => $item): ?>
+            <li class="sortable-item "
+                data-code="<?= $key ?>">
+                <i class="fa fa-grip-vertical"></i>
+                <i class="fa fa-check-square">
+                    <span><?= $item ?></span>
+                </i>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Mageplaza_OscUltimate/js/view/field-position": {
+                    "blockId": "<?= /** @noEscape */
+        $block->getBlockId() ?>"
+                }
+            }
+        }
+
+    </script>
+</div>
